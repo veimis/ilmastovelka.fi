@@ -1,7 +1,7 @@
 /*!
- * Start Bootstrap - Creative v5.1.3 (https://startbootstrap.com/template-overviews/creative)
- * Copyright 2013-2019 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-creative/blob/master/LICENSE)
+ * Start Bootstrap - ilmastovelka.fi v1.0.0 ()
+ * Copyright 2013-2019 Ilkka Veima
+ * Licensed under MIT (https://github.com/BlackrockDigital/ilmastovelka.fi/blob/master/LICENSE)
  */
 
 /*!
@@ -10558,10 +10558,15 @@ body,
 html {
   width: 100%;
   height: 100%;
+  font-size: 1.2rem;
 }
 
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
+}
+
+.text-white-90 {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 hr.divider {
@@ -10589,6 +10594,14 @@ hr.light {
 
 .page-section {
   padding: 8rem 0;
+}
+
+#footer a {
+  color: #6c757d;
+}
+
+#footer a:hover {
+  color: #f4623a;
 }
 
 #mainNav {
@@ -10665,8 +10678,8 @@ hr.light {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 72px);
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(92, 77, 66, 0.8)), to(rgba(92, 77, 66, 0.8))), url("../img/bg-masthead.jpg");
-  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/bg-masthead.jpg");
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(92, 77, 66, 0.8)), to(rgba(92, 77, 66, 0.8))), url("../img/background.jpg");
+  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/background.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -10696,6 +10709,10 @@ header.masthead h1 {
   header.masthead h1 {
     font-size: 3.5rem;
   }
+}
+
+header.masthead span {
+  color: #f4623a;
 }
 
 #portfolio .container-fluid {
@@ -10747,4 +10764,24 @@ header.masthead h1 {
 
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
+}
+
+#tips a {
+  color: white;
+}
+
+#tips ul {
+  list-style-type: none;
+}
+
+#contact .twitter-link a {
+  color: black;
+}
+
+#contact i {
+  color: #f4623a;
+}
+
+#contact h3 {
+  text-decoration: underline;
 }

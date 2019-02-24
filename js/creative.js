@@ -39,20 +39,56 @@
   // Collapse the navbar when page is scrolled
   $(window).scroll(navbarCollapse);
 
-  // Magnific popup calls
-  $('#portfolio').magnificPopup({
-    delegate: 'a',
-    type: 'image',
-    tLoading: 'Loading image #%curr%...',
-    mainClass: 'mfp-img-mobile',
-    gallery: {
-      enabled: true,
-      navigateByImgClick: true,
-      preload: [0, 1]
-    },
-    image: {
-      tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
-    }
-  });
-
 })(jQuery); // End of use strict
+
+// Emission calculator *** Load only after the DOM is ready ***
+var population = 5500000;
+var decimalPoints = 6;
+
+// Target values
+var target = 28520000;
+var max = 56078050;
+var divider = 365 * 24 * 60 * 60 * 2; // year in half seconds
+var shard = max / divider;
+var targetShard = target / divider;
+var year2019 = new Date('2019');
+var interval = 500; // milliseconds
+
+// Elements
+var total = document.getElementById("totalEmissions");
+var percent = document.getElementById("percent");
+var perPerson = document.getElementById("emissionsPerPerson");
+var perPersonPercent = document.getElementById("emissionsPerPersonPercent");
+var targetEmissions = document.getElementById("targetEmissions");
+var targetEmissionsPerPerson = document.getElementById("targetEmissionsPerPerson");
+var totalDept = document.getElementById("totalDept");
+var deptPerPerson = document.getElementById("deptPerPerson");
+
+function updateLargeNumber(element, value) {
+	element.innerHTML = Math.floor(value);
+}
+
+function updateSmallNumber(element, value) {
+	element.innerHTML = (value).toFixed(decimalPoints);
+}
+
+var timer = setInterval(update, interval);
+function update() {
+	var today = new Date();
+	var timeSinceYear = today.getTime() - year2019.getTime();
+	var shardsUntilNow = timeSinceYear / interval;
+
+	var totalEmissions = shard * shardsUntilNow;
+	updateLargeNumber(total, totalEmissions);
+	updateSmallNumber(perPerson, (totalEmissions / population));
+
+	var targetValue = targetShard * shardsUntilNow;
+	updateLargeNumber(targetEmissions, targetValue);
+	updateSmallNumber(targetEmissionsPerPerson, (targetValue / population));
+
+	var dept = targetValue - totalEmissions;
+	updateLargeNumber(totalDept, dept);
+	updateSmallNumber(deptPerPerson, dept / population);
+	percent.innerHTML = ((1 - targetValue / totalEmissions) * 100).toFixed(2);
+}
+

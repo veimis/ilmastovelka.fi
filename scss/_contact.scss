@@ -1,0 +1,16 @@
+// Styling for contact section
+#contact {
+	.twitter-link{
+		a {
+			color: black;
+		}
+	}
+
+	i {
+		color: $orange;
+	}
+
+	h3 {
+		text-decoration: underline;
+	}
+}
