@@ -10558,7 +10558,6 @@ body,
 html {
   width: 100%;
   height: 100%;
-  font-size: 1.2rem;
 }
 
 .text-white-75 {
@@ -10602,6 +10601,10 @@ hr.light {
 
 #footer a:hover {
   color: #f4623a;
+}
+
+.white-hilight {
+  background-color: #f23e0d;
 }
 
 #mainNav {
