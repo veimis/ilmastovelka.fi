@@ -59,8 +59,6 @@ var total = document.getElementById("totalEmissions");
 var percent = document.getElementById("percent");
 var perPerson = document.getElementById("emissionsPerPerson");
 var perPersonPercent = document.getElementById("emissionsPerPersonPercent");
-var targetEmissions = document.getElementById("targetEmissions");
-var targetEmissionsPerPerson = document.getElementById("targetEmissionsPerPerson");
 var totalDept = document.getElementById("totalDept");
 var deptPerPerson = document.getElementById("deptPerPerson");
 
@@ -83,10 +81,7 @@ function update() {
 	updateSmallNumber(perPerson, (totalEmissions / population));
 
 	var targetValue = targetShard * shardsUntilNow;
-	updateLargeNumber(targetEmissions, targetValue);
-	updateSmallNumber(targetEmissionsPerPerson, (targetValue / population));
-
-	var dept = targetValue - totalEmissions;
+	var dept = -1 * (targetValue - totalEmissions);
 	updateLargeNumber(totalDept, dept);
 	updateSmallNumber(deptPerPerson, dept / population);
 	percent.innerHTML = ((1 - targetValue / totalEmissions) * 100).toFixed(2);
