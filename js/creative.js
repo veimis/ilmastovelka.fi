@@ -51,7 +51,7 @@ var max = 56078050;
 var divider = 365 * 24 * 60 * 60 * 2; // year in half seconds
 var shard = max / divider;
 var targetShard = target / divider;
-var year2019 = new Date('2019');
+var startOfCurrentYear = new Date(new Date().getFullYear().toString());
 var interval = 500; // milliseconds
 
 // Elements
@@ -73,7 +73,7 @@ function updateSmallNumber(element, value) {
 var timer = setInterval(update, interval);
 function update() {
 	var today = new Date();
-	var timeSinceYear = today.getTime() - year2019.getTime();
+	var timeSinceYear = today.getTime() - startOfCurrentYear.getTime();
 	var shardsUntilNow = timeSinceYear / interval;
 
 	var totalEmissions = shard * shardsUntilNow;
